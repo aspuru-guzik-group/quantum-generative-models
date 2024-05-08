@@ -27,6 +27,5 @@ docking_structures/
 .ipynb_checkpoints
 experiment_results
 KRAS_stoned*
-data
 notebooks/hw_2m_samples.npy
 results/all_benchmarl_results_to_plot_s.pkl
