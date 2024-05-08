@@ -2,7 +2,6 @@
 *.png
 experiment_results/*.txt
 experiment_results/*.db
-*.csv
 *.zip
 *.err
 *.pt
@@ -18,7 +17,6 @@ __pycache__
 experiment_results/compound_samples/*.db
 benchmark_models/docking_structures/*
 *.pdbqt
-*.txt
 *.db
 *.h5
 wandb/*
