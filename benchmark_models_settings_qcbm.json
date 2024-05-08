@@ -1,0 +1,25 @@
+{
+    "lstm_n_epochs": 40,
+    "prior_n_epochs": 30,
+    "prior_size": 16,
+    "n_compound_generation": 5000,
+    "n_generation_steps": 10,
+    "prior_model": "QCBM",
+    "n_lstm_layers": 5,
+    "embedding_dim": 224,
+    "hidden_dim": 128,
+    "n_qcbm_layers": 4,
+    "data_set_id": 4,
+    "device": "cuda",
+    "gpu_count": 2,
+    "n_test_samples": 5000,
+    "batch_size": 128,
+    "dataset_frac": 1.0,
+    "n_samples_chemistry42":42,
+    "n_test_samples_chemistry42":300,
+    "optimizer_name":"COBYLA",
+    "do_greedy_sampling": false,
+    "temprature":0.95,
+    "experiment_root":"/project/mghazi/experiment_results"
+    
+}
