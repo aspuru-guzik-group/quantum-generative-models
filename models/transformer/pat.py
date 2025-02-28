@@ -3,16 +3,13 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
 
 import torch
-from orquestra.qml.api import Batch, TorchGenerativeModel, TrainResult
-from orquestra.qml.functional.layers.th import PositionalEncoding
-from orquestra.qml.functional.layers.th.core import Repeat
-from orquestra.qml.losses.th import LossFunction
+from orquestra.qml.api import Batch, TorchGenerativeModel
 from orquestra.qml.optimizers.th import AdamConfig, TorchOptimizerConfig
 from torch import nn
 from torchinfo import summary
 from torchinfo.model_statistics import ModelStatistics
 
-from ..layers import Concatenate
+from ..layers import Concatenate, PositionalEncoding, Repeat
 
 
 @dataclass
@@ -209,7 +206,7 @@ class MolPAT(TorchGenerativeModel):
         """
         super().__init__()
         output_activation_fn = nn.LogSoftmax(dim=-1)
-        loss_fn: LossFunction = nn.functional.nll_loss
+        loss_fn = nn.functional.nll_loss
         self._model = _DiscretePATModel(
             vocab_size,
             prior_dim,
@@ -302,7 +299,7 @@ class MolPAT(TorchGenerativeModel):
             device=self._device,
         )
 
-    def _train_on_batch(self, batch: Batch[torch.Tensor]) -> TrainResult:
+    def _train_on_batch(self, batch: Batch[torch.Tensor]) -> Dict[str, Any]:
         """Trains the model on a single batch of data and returns the associated loss."""
         self._raise_error_if_invalid_train_batch(batch)
 
